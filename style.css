@@ -48,6 +48,13 @@ li {
   list-style-position: inside;
   margin: 2%;
 }
+a {
+  text-decoration-line: underline;
+  transition: color 0.3s;
+}
+a:hover {
+  color : #ff7043;
+}
 
 /* ------------------------------------ */
 /* フォーム共通書式 */
