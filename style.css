@@ -41,15 +41,6 @@ body {
   align-items: center;
   height: 5em;
 }
-/* 必須アイコン */
-.form-required {
-  margin-left: 2em;
-  color: #fff;
-  background-color: #f67a7a;
-  padding: 2px 8px;
-  font-size: 1.2rem;
-  border-radius: 3px;
-}
 /* 入力欄 */
 .form_field {
   border: 1px solid #ccc;
