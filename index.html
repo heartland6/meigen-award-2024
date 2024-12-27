@@ -24,35 +24,21 @@
 
 <body>
   <main class="contact_main">
-
-    <script>
-      // Initialize the agent at application startup.
-      // If you're using an ad blocker or Brave/Firefox, this import will not work.
-      // Please use the NPM package instead: https://t.ly/ORyXk
-      const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
-        .then(FingerprintJS => FingerprintJS.load())
-
-      // Get the visitor identifier when you need it.
-      fpPromise
-        .then(fp => fp.get())
-        .then(result => {
-          // This is the visitor identifier:
-          const visitorId = result.visitorId;
-          return visitorId;
-        })
-    </script>
-
     <h1 class="contact_h1">みんなで決める「2024年ことしの$meigen」投票フォーム</h1>
-    <button type="button" onclick="alert(fpPromise)">フィンガープリントを表示</button>
-    <form action="" class="contact_form">
+    <form action="https://docs.google.com/forms/u/0/d/1tFY37eZCteM6CL4Cz_WfUjARZFK-6kDqafVeQ4uDCO8/formResponse" class="contact_form"method="post" target="hidden_iframe" onsubmit="submitted=true;">
       <!-- テキスト入力 -->
       <label class="form_block">
         <div class="form_label">$meigenのID</div>
-        <input type="number" class="form_field" placeholder="43" required>
+        <input type="number" name="entry.1901848407" class="form_field" placeholder="43" required>
       </label>
       <!-- 送信ボタン -->
-      <button type="submit" class="form-btn" onclick="location.href='./index.html'">投票</button>
+      <button type="submit" class="form-btn" onclick="location.href='./thanks.html'">投票</button>
     </form>
+
+    <script type="text/javascript">
+      let submitted = false;
+    </script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted)  {window.location='thanks.html';}"></iframe>
   </main>
 </body>
 
