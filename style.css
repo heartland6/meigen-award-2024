@@ -45,6 +45,7 @@ h2 {
 }
 li {
   list-style-type: circle;
+  list-style-position: inside;
   margin: 2%;
 }
 
