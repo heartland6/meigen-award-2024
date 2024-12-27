@@ -45,7 +45,7 @@
       <!-- $meigenID入力 -->
       <label class="form_block">
         <p class="form_label">$meigenのID</p>
-        <input type="number" id="meigenId" name="entry.1901848407" class="form_field" placeholder="43" required>
+        <input type="number" id="meigenId" name="entry.1901848407" class="form_field" placeholder="43" onchange="changeFormButtonText()" required>
       </label>
       <div class="meigen-btn-div">
         <button type="button" id="loadMeigen" class="meigen-btn" onclick="showMeigen()">$meigenを表示</button>
@@ -70,7 +70,13 @@
       </script>
       
       <!-- 送信ボタン -->
-      <button type="submit" class="form-btn">投票</button>
+      <button type="submit" id="form-btn" class="form-btn">投票</button>
+      <script>
+        const changeFormButtonText = () => {
+          const inputMeigenId = document.getElementById('meigenId').value;
+          document.getElementById('form-btn').innerHTML = `$meigen${inputMeigenId}に投票!`;
+        }
+      </script>
 
     </form>
 
