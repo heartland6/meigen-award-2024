@@ -29,8 +29,8 @@
   <main class="contact_main">
     <h1 class="contact_h1">「$meigen大賞2024」投票フォーム</h1>
 
-    <form action="https://docs.google.com/forms/u/0/d/1tFY37eZCteM6CL4Cz_WfUjARZFK-6kDqafVeQ4uDCO8/formResponse" class="contact_form"method="post" target="hidden_iframe" onsubmit="submitted=true;">
-      <!-- フィンガープリント送信 -->
+    <form action="https://docs.google.com/forms/u/0/d/1tFY37eZCteM6CL4Cz_WfUjARZFK-6kDqafVeQ4uDCO8/formResponse" class="contact_form"method="post" target="hidden_iframe" onsubmit="submitted = true;">
+      <!-- フィンガープリント送信　← 連打したいので廃止
       <label>
         <input type="hidden" id="userId" name="entry.617189888" class="form_field" required>
         <script>
@@ -41,14 +41,15 @@
           })();
         </script>
       </label>
+      -->
 
       <!-- $meigenID入力 -->
       <label class="form_block">
         <div class="form_label">$meigenのID</div>
-        <input type="number" id="meigenId" name="entry.1901848407" class="form_field" placeholder="43" oninput="changeFormButtonText()" required>
+        <input type="number" id="meigenId" name="entry.1901848407" class="form_field" placeholder="数値を入力..." oninput="changeFormButtonText()" required>
       </label>
-      <div class="meigen-btn-div">
-        <button type="button" id="loadMeigen" class="meigen-btn" onclick="showMeigen()">$meigenを表示</button>
+      <div class="meigen-button-div">
+        <button type="button" id="loadMeigen" class="meigen-button" onclick="showMeigen()">$meigenを表示</button>
       </div>
 
       <blockquote>
@@ -70,20 +71,44 @@
       </script>
       
       <!-- 送信ボタン -->
-      <button type="submit" id="form-btn" class="form-btn">投票</button>
-      <script>
-        const changeFormButtonText = () => {
-          const inputMeigenId = document.getElementById('meigenId').value;
-          document.getElementById('form-btn').innerHTML = `$meigen${inputMeigenId}に投票!`;
-        }
-      </script>
+      <div class="vote-container">
+        <button type="submit" id="vote-button" class="vote-button">...</button>
+        <div id="vote-feedback-container"></div>
+        <script>
+          const changeFormButtonText = () => {
+            const inputMeigenId = document.getElementById('meigenId').value;
+            document.getElementById('vote-button').innerHTML = `$meigen${inputMeigenId}に投票!`;
+          }
+        </script>
+        <!-- 「+1票」アニメーションスクリプト by chatGPT -->
+        <script>
+          document.getElementById("vote-button").addEventListener("click", () => {
+            if (document.getElementById('meigenId').value == '') return null;
+            
+            const container = document.getElementById("vote-feedback-container");
+
+            // 新しい「+1票」要素を作成
+            const feedback = document.createElement("span");
+            feedback.textContent = "+1票";
+            feedback.className = "vote-feedback";
+
+            // コンテナに追加
+            container.appendChild(feedback);
+
+            // アニメーション終了後に要素を削除
+            feedback.addEventListener("animationend", () => {
+              feedback.remove();
+            });
+          });
+        </script>
+      </div>
 
     </form>
 
     <script type="text/javascript">
       let submitted = false;
     </script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='thanks.html';}"></iframe>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if (submitted) return null;"></iframe>
 
     <h2>&nbsp;「$meigen大賞2024」の目的</h2>
     <ul>
@@ -94,6 +119,7 @@
     <h2>&nbsp;ルール</h2>
     <ul>
       <li>1人何票でもOKです。</li>
+      <li>連打OKです。</li>
     </ul>
 
     <h2>&nbsp;開催期間など</h2>
@@ -101,7 +127,6 @@
       <li>投票締切: 12/31(火) 22時ごろ</li>
       <li>大賞発表: 12/31(火) 23時ごろ</li>
     </ul>
-
   </main>
 </body>
 
