@@ -24,7 +24,6 @@
 
 <body>
   <main class="contact_main">
-    <h1 class="contact_h1">みんなで決める「2024年ことしの$meigen」投票フォーム</h1>
 
     <script>
       // Initialize the agent at application startup.
@@ -38,11 +37,13 @@
         .then(fp => fp.get())
         .then(result => {
           // This is the visitor identifier:
-          const visitorId = result.visitorId
-          alert(visitorId)
+          const visitorId = result.visitorId;
+          return visitorId;
         })
     </script>
 
+    <h1 class="contact_h1">みんなで決める「2024年ことしの$meigen」投票フォーム</h1>
+    <button type="button" onclick="alert(fpPromise)">フィンガープリントを表示</button>
     <form action="" class="contact_form">
       <!-- テキスト入力 -->
       <label class="form_block">
