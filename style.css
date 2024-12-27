@@ -21,7 +21,7 @@ body {
 }
 /* 見出し */
 .contact_h1 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-top: 1em;
   text-align: center;
@@ -46,8 +46,8 @@ body {
 /* 入力欄 */
 .form_field {
   flex-grow: 1;
-  margin-left: 4em;
-  margin-right: auto;
+  margin-left: 2em;
+  margin-right: 2em;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.5em 1em;
