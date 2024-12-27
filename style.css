@@ -11,6 +11,7 @@ body {
   color: #333;
   background-color: #fff;
   font-weight: 400;
+  margin: 2.5%;
 }
 
 /* mainタグ */
@@ -25,7 +26,7 @@ body {
 }
 /* 見出し・本文 */
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 600;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -36,17 +37,14 @@ h1 {
 h2 {
   font-size: 2.0rem;
   font-weight: 500;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   text-align: left;
   border-left: 3px solid #6A77A0;
   background: #f4f4f4;
 }
-p {
-  margin: 2%;
-}
 li {
-  list-style-type: square;
+  list-style-type: circle;
   margin: 2%;
 }
 
@@ -78,8 +76,7 @@ li {
   border-radius: 4px;
   padding: 1% 1%;
   box-sizing: border-box;
-  width: 70%;
-  margin: 0;
+  width: 50%;
 }
 /* ------------------------------------ */
 /* $meigen表示ボタン */
@@ -165,7 +162,7 @@ blockquote cite {
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  width: 40%;
+  width: 60%;
   height: 60px;
 }
 .vote-button:hover {
