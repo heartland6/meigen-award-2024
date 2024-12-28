@@ -96,7 +96,7 @@ a:hover {
 }
 .meigen-button{
   text-align: center;
-  width: 120px;
+  width: 40%;
   height: 40%;
   font-size: 1.4rem;
   background-color: #7A87B0;
@@ -117,7 +117,7 @@ blockquote{
   position: relative;
   border-top: 1px solid #7A87B0;
   border-bottom: 1px solid #7A87B0;
-  padding: 10px;
+  padding: 30px;
 }
 blockquote:before{
   position: absolute;

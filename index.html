@@ -43,6 +43,11 @@
       </label>
       -->
 
+      <!-- 票数を送信 -->
+      <label>
+        <input type="hidden" id="userId" name="entry.1746387029" class="form_field" value="1" required>
+      </label>
+
       <!-- $meigenID入力 -->
       <label class="form_block">
         <div class="form_label">$meigenのID</div>
@@ -51,35 +56,40 @@
       <div class="meigen-button-div">
         <button type="button" id="loadMeigen" class="meigen-button" onclick="showMeigen()">$meigenを表示</button>
       </div>
-
       <blockquote>
-        <br>
         <p id="meigenContent"></p>
         <cite id="meigenAuthor"></cite>
       </blockquote>
       <script>
+        const sleep = async msec => new Promise(resolve => setTimeout(resolve, msec));
         const showMeigen = async () => {
           document.getElementById('loadMeigen').innerHTML = "読み込み中...";
 
           const inputMeigenId = document.getElementById('meigenId').value;
           const meigen = await getMeigen(Number(inputMeigenId));
-          document.getElementById('meigenContent').innerHTML = `${meigen.content}`;
-          document.getElementById('meigenAuthor').innerHTML = `${meigen.author}`;
-
+          if (meigen.isRandom || inputMeigenId === '') {
+            document.getElementById('loadMeigen').innerHTML = "見つかりません";
+            await sleep(2000);
+          } else {
+            document.getElementById('meigenContent').innerHTML = `${meigen.content}`;
+            document.getElementById('meigenAuthor').innerHTML = `${meigen.author}`;
+          }
           document.getElementById('loadMeigen').innerHTML = "$meigenを表示";
         }
       </script>
       
       <!-- 送信ボタン -->
       <div class="vote-container">
-        <button type="submit" id="vote-button" class="vote-button">...</button>
+        <button type="submit" id="vote-button" class="vote-button">投票!</button>
         <div id="vote-feedback-container"></div>
+        <!-- いろんな票数のボタンを作りたいので廃止
         <script>
           const changeFormButtonText = () => {
             const inputMeigenId = document.getElementById('meigenId').value;
             document.getElementById('vote-button').innerHTML = inputMeigenId ? `$meigen${inputMeigenId}に投票!` : '...';
           }
         </script>
+        -->
         <!-- 「+1票」アニメーションスクリプト by chatGPT -->
         <script>
           document.getElementById("vote-button").addEventListener("click", () => {
@@ -102,7 +112,6 @@
           });
         </script>
       </div>
-
     </form>
 
     <script type="text/javascript">
@@ -125,7 +134,7 @@
     <h2>&nbsp;開催期間など</h2>
     <ul>
       <li>投票締切: 12/31(火) 22時ごろ</li>
-      <li>大賞発表: 12/31(火) 23時ごろ</li>
+      <li>結果発表: 12/31(火) 23時ごろ</li>
     </ul>
 
     <h2>&nbsp;外部リンク</h2>
@@ -136,6 +145,7 @@
         </a>
       </li>
     </ul>
+
   </main>
 </body>
 
