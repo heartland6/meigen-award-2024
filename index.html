@@ -21,15 +21,14 @@
   <!-- このサイトのCSS -->
   <link rel="stylesheet" href="./style.css">
 
-  <script type="text/javascript" src="./meigen.js"></script>
-  <script type="text/javascript" src="./fingerprint.js"></script>
+  <script type="text/javascript" src="./gas.js"></script>
 </head>
 
 <body>
   <main class="contact_main">
     <h1 class="contact_h1">「$meigen大賞2024」<br>投票フォーム</h1>
 
-    <form action="https://docs.google.com/forms/u/0/d/1tFY37eZCteM6CL4Cz_WfUjARZFK-6kDqafVeQ4uDCO8/formResponse" class="contact_form"method="post" target="hidden_iframe" onsubmit="submitted = true;">
+    <form action="https://script.google.com/macros/s/AKfycbytIe4kinJGQKg8wm8exHELxS-D4Vy5y_a2dHfTGnMVEyeBYaZLXQPyZzjf48t4oRVA/exec" class="contact_form" method="get" target="hidden_iframe">
       <!-- フィンガープリント送信　← 連打したいので廃止
       <label>
         <input type="hidden" id="userId" name="entry.617189888" class="form_field" required>
@@ -43,15 +42,23 @@
       </label>
       -->
 
+      <!-- キー・モード番号を送信 -->
+      <label>
+        <input type="hidden" name="key" class="form_field" value="114-zasshibu-ikisugi-514" required>
+      </label>
+      <label>
+        <input type="hidden" name="mode" class="form_field" value="1" required>
+      </label>
+
       <!-- 票数を送信 -->
       <label>
-        <input type="hidden" id="userId" name="entry.1746387029" class="form_field" value="1" required>
+        <input type="hidden" name="votes" class="form_field" value="1" required>
       </label>
 
       <!-- $meigenID入力 -->
       <label class="form_block">
         <div class="form_label">$meigenのID</div>
-        <input type="number" id="meigenId" name="entry.1901848407" class="form_field" placeholder="数値を入力..." oninput="changeFormButtonText()" required>
+        <input type="number" id="meigenId" name="id" class="form_field" placeholder="数値を入力..." required>
       </label>
       <div class="meigen-button-div">
         <button type="button" id="loadMeigen" class="meigen-button" onclick="showMeigen()">$meigenを表示</button>
@@ -66,13 +73,13 @@
           document.getElementById('loadMeigen').innerHTML = "読み込み中...";
 
           const inputMeigenId = document.getElementById('meigenId').value;
-          const meigen = await getMeigen(Number(inputMeigenId));
-          if (meigen.isRandom || inputMeigenId === '') {
+          const meigen = await getMeigenInfo(Number(inputMeigenId));
+          if (meigen.isOutOfRange) {
             document.getElementById('loadMeigen').innerHTML = "見つかりません";
             await sleep(2000);
           } else {
             document.getElementById('meigenContent').innerHTML = `${meigen.content}`;
-            document.getElementById('meigenAuthor').innerHTML = `${meigen.author}`;
+            document.getElementById('meigenAuthor').innerHTML = `──${meigen.author} | 名言#${inputMeigenId}`;
           }
           document.getElementById('loadMeigen').innerHTML = "$meigenを表示";
         }
