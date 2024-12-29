@@ -14,7 +14,7 @@ const showMeigen = async () => {
         document.getElementById('loadMeigen').innerHTML = '見つかりません';
         await sleep(2000);
     } else {
-        document.getElementById('current-votes').innerText = `$meigen${inputMeigenId}の得票数:`;
+        document.getElementById('current-votes').innerHTML = `$meigen${inputMeigenId}の得票数:`;
         document.getElementById('meigenContent').innerHTML = `${meigen.content}`;
         document.getElementById('meigenAuthor').innerHTML = `──${meigen.author} | 名言#${inputMeigenId}`;
         document.getElementById('vote-count').innerHTML = meigen.votes;

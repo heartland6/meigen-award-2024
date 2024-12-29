@@ -23,8 +23,6 @@ const popVoteFeedback = (votes, feedbackContainerName) => {
 const changeVotesNumber = newVotes => {
     const voteCount = document.getElementById('vote-count');
     const currentVotes = Number(voteCount.getHTML());
-    if (currentVotes == '') return null;
-
     voteCount.innerHTML = currentVotes + newVotes;
 }
 
