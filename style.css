@@ -189,7 +189,7 @@ blockquote cite {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 60%;
+  width: 80%;
   margin: 2% auto;
   gap: 2% 2%;
   border: 1px solid #333;
@@ -221,7 +221,7 @@ blockquote cite {
   width: 100%;
 }
 .vote-button {
-  width: 60%;
+  width: 80%;
   margin: 2% auto;
   font-size: 1.2em;
 }

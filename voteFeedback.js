@@ -60,7 +60,7 @@ voteButtons.forEach(button => {
         if (state.totalClicks >= 10) {
             tenVoteButton.style.display = 'block';
         }
-        if (state.totalClicks >= 50) {
+        if (state.totalClicks >= 30) {
             hundredVoteButton.style.display = 'block';
         }
     });
