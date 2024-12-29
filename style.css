@@ -148,6 +148,8 @@ blockquote:after{
 blockquote p {
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.6rem;
 }
 blockquote cite {
   display: block;
@@ -179,24 +181,56 @@ blockquote cite {
   opacity: 0.9;
 }
 /* ------------------------------------ */
-/* 送信ボタン押下時のアニメーション */
+/* 送信ボタン押下時のアニメーション(票数) */
 /* ------------------------------------ */
+.vote-display {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 40%;
+  margin: 2% auto;
+  gap: 2% 2%;
+  border: 1px solid #333;
+}
+#current-votes {
+  font-size: 1.6rem;
+}
+#vote-count {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.0rem;
+}
+/* ------------------------------------ */
+/* 送信ボタン押下時のアニメーション(ボタン) */
+/* ----------------------------------- */
+.vote-container-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2%;
+}
 .vote-container {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
-#vote-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.vote-button {
+  width: 60%;
+  margin: 2% auto;
+  font-size: 1.2em;
 }
 .vote-feedback {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 14px;
+  font-size: 1.0em;
   color: #ff5733;
   opacity: 1;
   pointer-events: none;
