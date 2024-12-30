@@ -177,7 +177,7 @@ blockquote cite {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 95%;
 }
 .vote-button {
   display: flex;
@@ -195,6 +195,10 @@ blockquote cite {
   color: #FFFFFF;
   background-color: #9AA7D0;
   opacity: 0.9;
+}
+#vote-button-text {
+  line-height: 150%;
+  text-align: center;
 }
 #plus-vote-button {
   background-color: #b07a7a;

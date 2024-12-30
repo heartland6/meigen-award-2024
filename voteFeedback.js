@@ -66,21 +66,21 @@ const advancedButtonsStatus = {
 
 const showPlusButton = meigenId => {
     advancedButtonsStatus.plusButton = true;
-    document.getElementById("plus-vote-button").innerHTML = '水増し (数%増加)';
+    document.getElementById("plus-vote-button").innerHTML = '<span id="vote-button-text">水増し<br>(数%増加)</span>';
 
     const message = `$meigen${meigenId} を見つけてくれてありがとナス！ `+ '\n' +'【「水増し」ボタンが解放されました】';
     alert(message);
 }
 const showMinusButton = meigenId => {
     advancedButtonsStatus.minusButton = true;
-    document.getElementById("minus-vote-button").innerHTML = 'ネガキャン (数%減少)';
+    document.getElementById("minus-vote-button").innerHTML = '<span id="vote-button-text">ネガキャン<br>(数%減少)</span>';
 
     const message = `$meigen${meigenId} を見つけてくれてありがとナス！ `+ '\n' +'【「ネガキャン」ボタンが解放されました】';
     alert(message);
 }
 const showRandomButton = meigenId => {
     advancedButtonsStatus.randomButton = true;
-    document.getElementById("random-vote-button").innerHTML = 'ランダム (-10万〜+10万票)';
+    document.getElementById("random-vote-button").innerHTML = '<span id="vote-button-text">ランダム<br>(-10万〜+10万票)</span>';
 
     const message = `$meigen${meigenId} を見つけてくれてありがとナス！` + '\n' +'【「ランダム」ボタンが解放されました】';
     alert(message);
