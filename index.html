@@ -72,22 +72,34 @@
       <!-- 票数表示 -->
       <div class="vote-display">
         <div id="current-votes">...</div>
-        <div id="vote-count"></div>
+        <span id="vote-count"></span>
+        <div id="vote-feedback-container"></div>
       </div>
 
-      <!-- 送信ボタン -->
       <div class="vote-container-wrapper">
-        <div id="one-vote" class="vote-container">
-          <button type="submit" id="one-vote-button" class="vote-button">+1票!</button>
-          <div id="one-vote-feedback-container"></div>
+        <div id="standard-vote-container" class="vote-container">
+          <!-- 投票ボタン(+N票) -->
+          <div class="vote-button-container">
+            <button type="submit" id="one-vote-button" class="vote-button">+1票!</button>
+          </div>
+          <div class="vote-button-container">
+            <button type="submit" id="ten-vote-button" class="vote-button">+10票!</button>
+          </div>
+          <div class="vote-button-container">
+            <button type="submit" id="hundred-vote-button" class="vote-button">+100票!</button>
+          </div>
         </div>
-        <div id="ten-vote" class="vote-container">
-          <button type="submit" id="ten-vote-button" class="vote-button">+10票!</button>
-          <div id="ten-vote-feedback-container"></div>
-        </div>
-        <div id="hundred-vote" class="vote-container">
-          <button type="submit" id="hundred-vote-button" class="vote-button">+100票!</button>
-          <div id="hundred-vote-feedback-container"></div>
+        <div id="advanced-vote-container" class="vote-container">
+          <!-- 投票ボタン(+%/-%/ランダム) -->
+          <div id="plus-vote" class="vote-button-container">
+            <button type="submit" id="plus-vote-button" class="vote-button">???</button>
+          </div>
+          <div id="minus-vote" class="vote-button-container">
+            <button type="submit" id="minus-vote-button" class="vote-button">???</button>
+          </div>
+          <div id="random-vote" class="vote-button-container">
+            <button type="submit" id="random-vote-button" class="vote-button">???</button>
+          </div>
         </div>
       </div>
       <script src="./voteFeedback.js"></script>
@@ -97,8 +109,15 @@
 
     <h2>&nbsp;お知らせ</h2>
     <ul>
-      <li>得票数の表示を追加しました。</li>
-      <li>その他新機能を実装しました。</li>
+      <li>得票数の表示の不具合を修正しました。</li>
+      <li>「+1票」「+10票」「+100票」ボタンが常時表示されるようになりました。</li>
+      <li>
+        新ボタンを3つ実装しました。
+        <ul>
+          <li>特定の$meigenを表示させるごとに解放されます。</li>
+          <li>ヒント: 「ねとらぼ」「栗田穣崇」「バオバブ」
+        </ul>
+      </li>
     </ul>
 
     <h2>&nbsp;「$meigen大賞2024」の目的</h2>

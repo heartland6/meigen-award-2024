@@ -161,24 +161,60 @@ blockquote cite {
 /* ------------------------------------ */
 /* 送信ボタン */
 /* ------------------------------------ */
-.vote-button{
+.vote-container-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.vote-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  width: 90%;
+}
+.vote-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #7A87B0;
   border-radius: 5px;
   color: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  width: 60%;
+  margin: 2% auto;
+  width: 100%;
   height: 60px;
+  font-size: 1.2em;
 }
 .vote-button:hover {
   color: #FFFFFF;
   background-color: #9AA7D0;
   opacity: 0.9;
+}
+#plus-vote-button {
+  background-color: #b07a7a;
+}
+#minus-vote-button {
+  background-color: #7aaab0;
+}
+#random-vote-button {
+  animation: rainbow 10.5s infinite;
+}
+@keyframes rainbow {
+   0% { background-color: red; }
+  13% { background-color: orange; }
+  26% { background-color: yellow; }
+  39% { background-color: green; }
+  52% { background-color: aqua; }
+  65% { background-color: aqua; }
+  78% { background-color: blue; }
+  91% { background-color:purple; }
+  100% { background-color: red; }
 }
 /* ------------------------------------ */
 /* 送信ボタン押下時のアニメーション(票数) */
@@ -198,21 +234,13 @@ blockquote cite {
   font-size: 1.6rem;
 }
 #vote-count {
-  white-space: pre-wrap;
-  word-wrap: break-word;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 2.0rem;
 }
 /* ------------------------------------ */
 /* 送信ボタン押下時のアニメーション(ボタン) */
 /* ----------------------------------- */
-.vote-container-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2%;
-}
+
 .vote-container {
   position: relative;
   display: flex;
@@ -220,18 +248,12 @@ blockquote cite {
   justify-content: center;
   width: 100%;
 }
-.vote-button {
-  width: 80%;
-  margin: 2% auto;
-  font-size: 1.2em;
-}
 .vote-feedback {
   position: absolute;
-  left: 50%;
+  left: 63%;
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.0em;
-  color: #ff5733;
   opacity: 1;
   pointer-events: none;
   animation: rise-and-fade 1s ease-out forwards;
