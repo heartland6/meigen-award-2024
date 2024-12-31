@@ -1,5 +1,5 @@
 const meigenGASKey = '114-zasshibu-ikisugi-514';
-const meigenGASId = 'AKfycbxzxep1WU5rRIOgJ0kBt9aPz4ziXAie4oM5c2fUk3_8UtVRAbM3zi6Lmp_KPpZ0ZyIx';
+// const meigenGASId = 'AKfycbxzxep1WU5rRIOgJ0kBt9aPz4ziXAie4oM5c2fUk3_8UtVRAbM3zi6Lmp_KPpZ0ZyIx';
 const rankGASId = "AKfycbytIe4kinJGQKg8wm8exHELxS-D4Vy5y_a2dHfTGnMVEyeBYaZLXQPyZzjf48t4oRVA";
 
 const gasGet = async (gasId, params) => {
@@ -19,7 +19,13 @@ const gasGet = async (gasId, params) => {
 }
 
 const getMeigenInfo = async meigenId => {
-    const info = await gasGet(rankGASId, {id: meigenId});
-    console.log(info);
-    return info;
+    const result = await gasGet(rankGASId, {id: meigenId});
+    console.log(result);
+    return result;
+}
+
+const getTotalVotes = async () => {
+    const result = await gasGet(rankGASId, {mode: 2});
+    console.log(result);
+    return result;
 }
